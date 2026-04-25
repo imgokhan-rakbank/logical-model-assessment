@@ -1,10 +1,9 @@
 ---
 name: gap-report-generator
 description: >
-  Generates the final structured gap assessment report for a silver-layer subject area.
-  Use when asked to generate, write, or produce the gap report output file after assessment
-  tasks are complete.
-allowed-tools: shell, edit
+   Generates the final structured gap assessment report for a silver-layer subject area.
+   Use when asked to generate, write, or produce the gap report output file after assessment
+   tasks are complete.
 ---
 
 # Gap Report Generator

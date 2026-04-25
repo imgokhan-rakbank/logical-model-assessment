@@ -4,7 +4,6 @@ description: >
   Runs a comprehensive guideline compliance sweep against all active rules for a silver-layer
   subject area. Use when asked to check naming conventions, DQ controls, SCD rules, or overall
   guideline compliance.
-allowed-tools: shell
 ---
 
 # Guideline Compliance Sweep

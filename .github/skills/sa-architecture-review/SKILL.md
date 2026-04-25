@@ -4,7 +4,6 @@ description: >
   Performs a subject area architecture review for a silver-layer banking data model.
   Use this skill when asked to evaluate domain scoping, identity strategy, SCD strategy,
   cross-entity relationships, or storage choices for a subject area.
-allowed-tools: shell
 ---
 
 # Subject Area Architecture Review

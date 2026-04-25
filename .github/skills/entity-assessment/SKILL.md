@@ -4,7 +4,6 @@ description: >
   Performs a detailed per-entity assessment of a silver-layer logical model entity including
   industry fitness, attribute-level review, metadata completeness, and finding generation.
   Use when asked to assess, audit, or review a specific entity or all entities in a subject area.
-allowed-tools: shell
 ---
 
 # Per-Entity Assessment
