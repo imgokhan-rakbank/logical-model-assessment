@@ -1,0 +1,25 @@
+{
+  "subject_area": "{subject_area}",
+  "generated_by": "llm-assessment-template",
+  "generated_on": "",
+  "gaps": [
+    {
+      "gap_id": "G-EXAMPLE-001",
+      "severity": "High",
+      "summary": "Example: customer surrogate key missing in physical table",
+      "description": "Logical model defines a non-null surrogate `customer_id` as primary identifier, but the physical table uses a nullable, non-unique `customer_number` column.",
+      "evidence": [
+        {"file": "{subject_area}_physical_structures.xlsx", "sheet": "customers", "table": "dbo.customers", "column": "customer_number", "cell": "B12"}
+      ],
+      "affected_tables": ["dbo.customers"],
+      "affected_columns": ["customer_number"],
+      "recommendation": "Add non-null surrogate `customer_id` column, backfill unique values from `customer_number` or generate UUIDs, add PK constraint, update downstream ETL to use `customer_id` and phase out `customer_number`.",
+      "estimated_effort": "Medium",
+      "hours": 24,
+      "priority": "P0",
+      "regulatory": false,
+      "regulatory_note": "",
+      "confidence": 0.92
+    }
+  ]
+}
