@@ -262,12 +262,6 @@ CREATE TABLE silver.customer.customer_address (
     postal_code         STRING,
     country_code        CHAR(3)     NOT NULL,   -- ISO 3166-1 alpha-3
     is_primary          BOOLEAN     NOT NULL,
-    _valid_from         TIMESTAMP   NOT NULL,
-    _valid_to           TIMESTAMP   NOT NULL,
-    _is_current         BOOLEAN     NOT NULL,
-    _source_system      STRING      NOT NULL,
-    _silver_loaded_at   TIMESTAMP   NOT NULL,
-    _silver_updated_at  TIMESTAMP   NOT NULL,
     _dq_status          STRING      NOT NULL,
     _dq_flags           ARRAY<STRING>,
     source_system_code     STRING,
@@ -626,12 +620,6 @@ CREATE TABLE silver.customer.customer (
 CREATE TABLE silver.customer.customer_cbs_attributes (
     customer_sk     STRING NOT NULL,
     cbs_risk_band   STRING,
-    cbs_product_group STRING
-);
-
-CREATE TABLE silver.customer.customer_cbs_attributes (
-    customer_sk     STRING NOT NULL,
-    cbs_risk_band   STRING,
     cbs_product_group STRING,
     source_system_code     STRING,
     source_system_id       STRING,
@@ -646,11 +634,6 @@ CREATE TABLE silver.customer.customer_cbs_attributes (
     source_ingestion_date  TIMESTAMP
 );
 
-CREATE TABLE silver.customer.customer_crm_attributes (
-    customer_sk     STRING NOT NULL,
-    crm_lead_source STRING,
-    crm_lifecycle_stage STRING
-);
 
 CREATE TABLE silver.customer.customer_crm_attributes (
     customer_sk     STRING NOT NULL,

@@ -56,7 +56,6 @@ Evaluate:
 - Identity strategy: `<entity>_sk` (MD5 surrogate) + `<entity>_bk` on every entity.
 - SCD strategy coherence (SCD-2 default; SCD-1 only with steward approval).
 - Cross-entity referential integrity (missing FKs, broken cardinality).
-- Storage/partitioning/format choices (Delta, auto-optimize).
 - ETL mapping completeness and lineage.
 
 ## Step 4 — Missing Critical Entities Check
@@ -75,8 +74,7 @@ For **every** logical entity, assess:
 For each attribute verify: mapping status, data type/precision, nullability, key structure (PK/SK/FK), SCD/history, naming compliance per `guidelines/06-naming-conventions.md`.
 
 ### 5c — Metadata Completeness
-Confirm all Silver metadata columns are present:
-`_silver_loaded_at`, `_silver_updated_at`, `_source_system`, `_bronze_batch_id`, `_is_current`, `_valid_from`, `_valid_to`, `_dq_status`, `_dq_flags`.
+Confirm all Silver metadata columns are present
 
 ## Step 6 — Denormalization Analysis
 

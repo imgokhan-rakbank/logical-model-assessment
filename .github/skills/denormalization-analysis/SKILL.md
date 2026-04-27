@@ -32,9 +32,8 @@ For each case provide:
 
 ## Remediation Options
 
-1. **Re-normalize**: extract to lookup table + provide migration SQL
-2. **Add SCD columns**: add `effective_from`/`to`/audit columns
-3. **Retain with controls**: add compensating ETL validation — only if documented justification exists
+1. **Re-normalize**: extract to lookup table
+2. **Retain with controls**: add compensating ETL validation — only if documented justification exists
 
 **Default rule**: If no justification is provided, classify as `Unnecessary` and recommend re-normalization.
 

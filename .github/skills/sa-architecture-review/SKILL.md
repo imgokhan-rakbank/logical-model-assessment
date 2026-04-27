@@ -30,7 +30,7 @@ Then evaluate:
 
 ## SCD Strategy
 - SCD-2 is the default. SCD-1 requires documented steward approval.
-- Verify mandatory SCD columns: `_is_current`, `_valid_from`, `_valid_to`.
+- Verify mandatory SCD columns.
 
 ## Cross-Entity Relationships
 - Identify missing foreign keys, undocumented join keys, or broken cardinality.
@@ -39,11 +39,6 @@ Then evaluate:
 ## ETL Mapping & Lineage
 - Check source-to-target mapping completeness.
 - Flag unmapped entities or attributes.
-
-## Storage & Physical Infrastructure
-- Delta format required.
-- Partition keys should align with query patterns.
-- Auto-optimize (auto-compaction, optimized writes) should be enabled.
 
 Output findings as a table:
 
