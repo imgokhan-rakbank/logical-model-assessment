@@ -12,8 +12,8 @@ When asked to review the architecture of a subject area, follow these steps:
 
 1. Read `sa/subject-areas.md` to get the canonical definition (schema, priority, description) of the subject area.
 2. Read all files in `guidelines/` to load normative rules.
-3. Read `sa/<subject_area>/input/<sa>_physical_structures.csv` to understand the physical implementation.
-4. Read `bank_logical_model.xlsx` and filter to the assessed subject area.
+3. Read `bank_logical_model.xlsx` and filter to the assessed subject area.
+4. Read `sa/<subject_area>/input/<sa>_physical_structures.csv` to understand the physical implementation.
 
 Then evaluate:
 

@@ -27,7 +27,7 @@ Always read and apply **all** files under `guidelines/` — they are normative a
 |---|---|---|
 | Logical model | `bank_logical_model.xlsx` | Filter to the assessed subject area only |
 | Physical structures | `sa/<subject_area>/input/<sa>_physical_structures.csv` | Tables, columns, types, nullability, PK/FK |
-| Source-to-target mapping | `sa/<subject_area>/input/<sa>_data_mapping.xlsx` | Source → silver column mappings |
+| Source-to-target mapping | `sa/<subject_area>/input/*_data_mapping.xlsx` | Source → silver column mappings, there maybe multiple files make sure to read all *_data_mapping.xlsx files |
 | Guidelines | `guidelines/` | Normative rules |
 | Subject area taxonomy | `sa/subject-areas.md` | Canonical SA list |
 
