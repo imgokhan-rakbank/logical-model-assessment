@@ -21,7 +21,7 @@
 | **Logical Model Sub-Areas** | `Txn - Electronic Channel Txn` (47 entities, 792 attrs) · `Txn - NonElectronic Channel Txn` (10 entities, 193 attrs) |
 | **Physical Tables Found** | 12 tables in electronic schema · 8 tables in non-electronic schema |
 | **Total Logical Entities Assessed** | 18 core entities (transaction + reference) + 14 misscoped entities identified for migration |
-| **Overall Mapping Completeness** | ~57% across all entities; Phone Banking: ~6%; Reference_ATM: 0% |
+| **Overall Mapping Completeness** | ~55% across all entities; Phone Banking: ~6%; Reference_ATM: 0% |
 | **Critical Gaps (P0)** | 6 — schema mismatch, missing surrogate keys, all-STRING types, misscoped entities, missing double-entry model, Phone Banking unmapped |
 | **High Gaps (P1)** | 9 — reference data co-location, empty tables, SCD naming, PII card masking, raw source codes, monetary type, UTC enforcement, duplicate reference tables, missing physical implementations |
 | **Medium Gaps (P2)** | 5 — table naming, grain ambiguity, 3NF violations, duplicate logical entity, payment_platform Delta version |
@@ -1001,8 +1001,7 @@ This entity belongs in `silver.org` (Organization SA — "Employees" or a contac
 | 5 | `Debtor Customer Name` in `Payment Platform Transaction` | PPT → silver.party | **Unnecessary** | Same as above |
 | 6 | `Creditor Segment Code` in `Payment Platform Transaction` | PPT → silver.party | **Unnecessary** | Party/segmentation attribute; cross-SA |
 | 7 | `Debtor Segment Code` in `Payment Platform Transaction` | PPT → silver.party | **Unnecessary** | Same as above |
-| 8 | `Creditor Customer Name` in `Payment Platform Transaction` | PPT → silver.party | **Unnecessary** | Duplicate of row 4 (creditor name) |
-| 9 | `Beneficiary Name` in `Internet/Mobile Banking Transaction` | IMB → silver.party | **Unnecessary** | Stale on name change; FK reference preferred |
+| 8 | `Beneficiary Name` in `Internet/Mobile Banking Transaction` | IMB → silver.party | **Unnecessary** | Stale on name change; FK reference preferred |
 | 10 | `Merchant Name` in `Internet/Mobile Banking Transaction` | IMB → Reference_Merchant | **Acceptable** | Could keep for display convenience with documented justification; prefer FK |
 | 11 | `Balance after transaction` in `Non Electronic Channel Transaction` | NECT → silver.account | **Unnecessary** | Derived metric; violates SLV-007; Account SA boundary |
 | 12 | Reference data tables (`reference_mcc`, `reference_merchant`, `reference_bank_branch`) duplicated in BOTH electronic and non-electronic schemas | Both schemas | **Unnecessary** | Consolidate to `silver.reference`; duplicate maintenance is risk |
