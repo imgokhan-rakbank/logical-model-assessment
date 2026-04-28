@@ -7,7 +7,7 @@
 **Priority (per SA taxonomy):** 4 — Low  
 **Schema:** `silver.application`  
 **Source Artifacts:**
-- Logical Model: `bank_logical_model.xlsx` → Sheet: `Consolidated Metada for Subject` (28 entities, 409 rows)
+- Logical Model: `bank_logical_model.xlsx` → Sheet: `Consolidated Metadata for Subject` (28 entities, 409 rows)
 - Physical Structures: `sa/application/application_physical_structures.csv` (49 table entries)
 - Data Mapping Files: **None found** — no `*_data_mapping.xlsx` in `sa/application/input/`
 - Guidelines: `guidelines/01-data-quality-controls.md`, `guidelines/06-naming-conventions.md`, `guidelines/11-modeling-dos-and-donts.md`
@@ -641,18 +641,20 @@ Same gaps as `Application` entity: `run_id` missing, `source_ingestion_date` mis
 
 #### 4.4b Attribute Issues
 
-| Attribute | Type in Model | Expected Type | Issue |
+**Note:** Attribute names below are reproduced verbatim from the logical model to document naming violations. Recommended canonical names are given in the Issue column.
+
+| Attribute (current model name — non-compliant) | Type in Model | Expected Type | Issue |
 |---|---|---|---|
-| Feature_Id | STRING | STRING NOT NULL | 🔴 `Feature_Id` uses PascalCase — should be `feature_id` or `application_feature_bk`; no SK defined |
-| Application Feature Start Date | STRING | DATE | 🔴 Wrong type; name has spaces (not snake_case) |
-| Application Id | STRING | STRING NOT NULL | 🔴 Not snake_case; FK to Application undefined |
-| Application Overridden Feature ID | STRING | STRING | 🔴 Not snake_case; self-referential FK undefined |
-| Application Feature End Date | STRING | DATE | 🔴 Wrong type |
-| Application Feature UOM Cd | STRING | STRING | 🔴 Non-standard abbreviation (`Cd`); use `unit_of_measure_code` |
-| Application Feature Amount | STRING | DECIMAL(18,4) | 🔴 Wrong type; missing currency suffix |
-| Application Feature Rate | STRING | DECIMAL(10,6) | 🔴 Wrong type |
-| Application Feature Quantity | STRING | INTEGER | 🔴 Wrong type |
-| Application Feature Number | STRING | INTEGER | 🔴 Wrong type; unclear semantics |
+| `Feature_Id` | STRING | STRING NOT NULL | 🔴 PascalCase violates NAM-001; rename to `application_feature_bk` (business key) or `feature_id`; no SK defined |
+| `Application Feature Start Date` | STRING | DATE | 🔴 Spaces in name violate NAM-001; rename to `application_feature_start_date DATE` |
+| `Application Id` | STRING | STRING NOT NULL | 🔴 Spaces violate NAM-001; rename to `application_id` or `application_bk`; FK undefined |
+| `Application Overridden Feature ID` | STRING | STRING | 🔴 Spaces + mixed case violate NAM-001; rename to `application_overridden_feature_id` |
+| `Application Feature End Date` | STRING | DATE | 🔴 Spaces violate NAM-001; rename to `application_feature_end_date DATE` |
+| `Application Feature UOM Cd` | STRING | STRING | 🔴 Non-standard abbreviation `Cd` and spaces violate NAM-001; rename to `unit_of_measure_code` |
+| `Application Feature Amount` | STRING | DECIMAL(18,4) | 🔴 Spaces violate NAM-001; rename to `application_feature_amount_aed`; wrong type |
+| `Application Feature Rate` | STRING | DECIMAL(10,6) | 🔴 Spaces violate NAM-001; rename to `application_feature_rate`; wrong type |
+| `Application Feature Quantity` | STRING | INTEGER | 🔴 Spaces violate NAM-001; rename to `application_feature_quantity`; wrong type |
+| `Application Feature Number` | STRING | INTEGER | 🔴 Spaces violate NAM-001; rename to `application_feature_number`; wrong type; unclear semantics |
 
 **Critical gap:** `Application_Feature` has **no SCD-2 columns** whatsoever (no effective_from, effective_to, is_current, create_date, update_date). This entity cannot track feature changes over time.
 
